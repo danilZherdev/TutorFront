@@ -1,0 +1,37 @@
+import { Component } from "react";
+import AboutText from "./AboutText";
+import Header from "./Header";
+import TutorsView from "./TutorsView";
+
+
+
+class TutorPage extends Component {
+
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
+            <div>
+                <Header props={this.props} />
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'row'
+                }}>
+                    <div
+                        style={{
+                            marginLeft: 20,
+                            width: '25%',
+                            borderRight: '1.5px solid rgba(0, 0, 0, 0.10)',
+                            borderColor: "black"
+                        }}>
+                        <AboutText />
+                    </div>
+                    <TutorsView />
+                </div>
+            </div>
+        )
+    }
+}
+export default TutorPage;
