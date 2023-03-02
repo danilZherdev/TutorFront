@@ -9,6 +9,7 @@ class TutorPage extends Component {
 
     constructor(props) {
         super(props)
+        console.log('Danil show subjectId is ', this.props.match.params.subjectId)
     }
 
     render() {

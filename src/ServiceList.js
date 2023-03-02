@@ -16,7 +16,7 @@ class ServiceList extends Component {
             }
         }
 
-        axios.get('/service/all', config)
+        axios.get('/service/by-subject?subjectId=1', config)
             .then((response => response.data))
             .then((data) => this.setState({ service: data }))
             .catch(error => alert(error));

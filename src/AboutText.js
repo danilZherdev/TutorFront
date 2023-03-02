@@ -16,7 +16,7 @@ class AboutText extends Component {
             <div
                 style={{
                     // backgroundColor:"#b7e6ee",
-                    backgroundColor:"#d3eaf2",
+                    // backgroundColor:"#d3eaf2",
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

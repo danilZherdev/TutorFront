@@ -26,7 +26,7 @@ class MainPage extends Component {
                         margin: '10%'
                     }}
                 >
-                    <SearchSubject />
+                    <SearchSubject props={this.props} />
                 </div>
                 <div
                     style={{

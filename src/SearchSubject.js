@@ -1,55 +1,51 @@
 import { Component } from "react";
 
-const defaultSubjects = [
-    'Math',
-    'Physic',
-    'Hello',
-    'Danil',
-    'Other',
-    'Math',
-    'Physic',
-    'Hello',
-    'Danil',
-    'Other',
-    'Math',
-    'Physic',
-    'Hello',
-    'Danil',
-    'Other',
-    'Math',
-    'Physic',
-    'Hello',
-    'Danil',
-    'Other'
-];
-
 class SearchSubject extends Component {
 
 
     constructor(props) {
         super(props)
         this.state = {
+            defaultSubjects: [],
             foundSubjects: []
         }
     }
 
-    openSubjectList() {
-        this.props.props.history.push('/subject')
+    componentDidMount() {
+        fetch('/subject/all').then(result => {
+            return result.json();
+        }).then(subjects => {
+            this.setState({
+                defaultSubjects: subjects,
+                foundSubjects: []
+            });
+        }).catch(error => {
+            console.log('Error result is ', error)
+        })
     }
 
     updateState(found) {
         console.log('Search subject this is ', this)
         this.setState({
+            defaultSubjects: this.state.defaultSubjects,
             foundSubjects: found
         });
     }
 
     search(e) {
         const text = e.target.value;
+        if(text.length === 0) {
+            this.updateState([])
+            return;
+        }
         console.log('Search text is ', text)
-        const found = defaultSubjects.filter(s => s.toLowerCase().includes(text.toLowerCase()));
+        const found = this.state.defaultSubjects.filter(s => s.title.toLowerCase().includes(text.toLowerCase()));
         console.log('Found is ', found);
         this.updateState(found)
+    }
+
+    openTutorsPage() {
+        this.props.props.history.push('/tutorPage?subjectId=1')
     }
 
     render() {
@@ -81,7 +77,7 @@ class SearchSubject extends Component {
                     {
                         this.state.foundSubjects.map((s) => {
                             return (
-                                <h2>{s}</h2>
+                                <h2 onClick={() => this.openTutorsPage()}>{s.title}</h2>
                             )
                         })
                     }

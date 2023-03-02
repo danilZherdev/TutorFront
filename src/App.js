@@ -26,7 +26,7 @@ class App extends Component {
             <Route path='/heder'exact={true} component ={Header}/>
             <Route path='/main'exact={true} component ={MainPage}/>
             <Route path='/tutor'exact={true} component ={TutorsView}/>
-            <Route path='/tutorPage'exact={true} component ={TutorPage}/>
+            <Route path='/tutorPage/:subjectId' exact={true} component ={TutorPage}/>
             <Route path='/searchSubject'exact={true} component ={SearchSubject}/>
           </Switch>
         </Router>

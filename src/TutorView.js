@@ -1,13 +1,25 @@
 import { Component } from "react";
 import logo512 from "./assets/logo512.png";
-
+import axios from "axios";
 
 class TutorView extends Component {
 
 
     constructor(props) {
         super(props)
+    }
 
+    submitAction() {
+        let config = {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+            }
+        }
+
+        axios.get('/studentService/start-deal?serviceId=1', config)
+            .then((response => response.data))
+            .then((data) => this.setState({ services: data }))
+            .catch(error => alert(error));
     }
 
 
@@ -44,7 +56,7 @@ class TutorView extends Component {
                             marginRight: 40,
                             marginLeft: 40
                         }}>
-                        Rating: 4.5
+                        Rating: {this.props.rating}
                     </h4>
                 </div>
                 <div>
@@ -53,27 +65,28 @@ class TutorView extends Component {
                             marginRight: 40,
                             marginLeft: 40
                         }}>
-                        Жердев Данил</h3>
+                        {this.props.fio}</h3>
                     <h4
                         style={{
                             marginRight: 40,
                             marginLeft: 40
                         }}>
-                        Стаж: 5 лет</h4>
+                        Стаж: {this.props.expirience} лет</h4>
                     <h4
                         style={{
                             marginRight: 40,
                             marginLeft: 40
                         }}
-                    >Философия</h4>
+                    >{this.props.subject}</h4>
                 </div>
                 <div>
-                    <h3>Цена 3000 руб.час</h3>
-                    <h4>Занят</h4>
-                    <input type={'button'} value={'Связаться'} />
+                    <h3>Цена {this.props.price} руб.час</h3>
+                    <h4>{this.props.isBusy === true ? "Занято" : "Свободен"}</h4>
+                    <input type={'button'} value='Оплатить' onClick={() => this.submitAction()} />
                 </div>
             </div>
         )
     }
 }
+
 export default TutorView;
