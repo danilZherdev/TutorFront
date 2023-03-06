@@ -174,7 +174,7 @@ class RegistrationView extends Component {
                     <FormGroup style={{
                         marginTop: 20
                     }}>
-                        <Input type="submit" value="register" />
+                        <Input type="submit" value="register" onClick={() =>  this.props.history.push('/authorization')} />
                     </FormGroup>
                 </Form>
             </div>

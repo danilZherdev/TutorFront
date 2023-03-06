@@ -11,6 +11,7 @@ import MainPage from './MainPage';
 import TutorsView from './TutorsView';
 import TutorPage from './TutorPage';
 import SearchSubject from './SearchSubject';
+import ProofPayment from './proofPayment';
 
 
 class App extends Component {
@@ -28,10 +29,13 @@ class App extends Component {
             <Route path='/tutor'exact={true} component ={TutorsView}/>
             <Route path='/tutorPage/:subjectId' exact={true} component ={TutorPage}/>
             <Route path='/searchSubject'exact={true} component ={SearchSubject}/>
+            <Route path='/payment'exact={true} component ={ProofPayment}/>
+
           </Switch>
         </Router>
     )
   }
 }
+
 
 export default App;

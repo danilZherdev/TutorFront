@@ -97,7 +97,7 @@ class AuthorizationView extends Component {
                     <FormGroup style={{
                         marginTop: 10
                     }}>
-                        <Input type="submit" value="login" />
+                        <Input type="submit" value="login" onClick={() => this.props.history.push('/main')} />
                     </FormGroup>
                     <input type={'button'} value='registration' onClick={() => this.openRegistratin()}
                         style={{
