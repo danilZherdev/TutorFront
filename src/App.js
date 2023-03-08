@@ -11,7 +11,7 @@ import MainPage from './MainPage';
 import TutorsView from './TutorsView';
 import TutorPage from './TutorPage';
 import SearchSubject from './SearchSubject';
-import ProofPayment from './proofPayment';
+import ProofPayment from './ProofPayment';
 
 
 class App extends Component {

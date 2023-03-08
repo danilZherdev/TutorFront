@@ -14,7 +14,7 @@ class Header extends Component {
     }
 
     openTutors() {
-        this.props.props.history.push('/tutorPage')
+        this.props.props.history.push('/tutorPage/1')
     }
 
     render() {

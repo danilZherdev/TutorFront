@@ -38,6 +38,7 @@ class TutorsView extends Component {
                                 subject={service.subject.title}
                                 expirience={service.experience}
                                 rating={service.rating}
+
                              />
                         )
                     })
