@@ -2,7 +2,6 @@ import axios from "axios";
 import { Component } from "react";
 import { FormGroup, Input, Label, Form } from "reactstrap";
 
-
 class RegistrationView extends Component {
 
     constructor(props) {

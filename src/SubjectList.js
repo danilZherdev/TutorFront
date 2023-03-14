@@ -1,6 +1,5 @@
 import { Component } from "react";
 
-
 class SubjectList extends Component {
 
     constructor(props) {

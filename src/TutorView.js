@@ -4,25 +4,13 @@ import axios from "axios";
 
 class TutorView extends Component {
 
-
     constructor(props) {
         super(props)
     }
 
-    submitAction() {
-        let config = {
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            }
-        }
-
-        axios.get('/studentService/start-deal?serviceId=1', config)
-            .then((response => response.data))
-            .then((data) => this.setState({ services: data }))
-            .catch(error => alert(error));
+    submitAction(orderId, price) {
+        this.props.history.push(`/payment/${orderId}/${price}`)
     }
-
-
 
     render() {
         return (
@@ -82,7 +70,7 @@ class TutorView extends Component {
                 <div>
                     <h3>Цена {this.props.price} руб.час</h3>
                     <h4>{this.props.isBusy === true ? "Занято" : "Свободен"}</h4>
-                    <input type={'button'} value='Оплатить' onClick={() => this.submitAction()} />
+                    <input type={'button'} value='Оплатить' onClick={() => this.submitAction(77, this.props.price)} />
                 </div>
             </div>
         )

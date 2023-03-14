@@ -44,8 +44,8 @@ class SearchSubject extends Component {
         this.updateState(found)
     }
 
-    openTutorsPage() {
-        this.props.props.history.push('/tutorPage?subjectId=1')
+    openTutorsPage(id) {
+        this.props.props.history.push(`/tutorPage/${id}`)
     }
 
     render() {
@@ -77,7 +77,7 @@ class SearchSubject extends Component {
                     {
                         this.state.foundSubjects.map((s) => {
                             return (
-                                <h2 onClick={() => this.openTutorsPage()}>{s.title}</h2>
+                                <h2 onClick={() => this.openTutorsPage(s.id)}>{s.title}</h2>
                             )
                         })
                     }

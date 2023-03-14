@@ -3,9 +3,6 @@ import AboutText from "./AboutText";
 import Header from "./Header";
 import SearchSubject from "./SearchSubject";
 
-
-
-
 class MainPage extends Component {
 
 

@@ -2,9 +2,7 @@ import { Component } from "react";
 import TutorView from "./TutorView";
 import axios from "axios";
 
-
 class TutorsView extends Component {
-
 
     constructor(props) {
         super(props)
@@ -18,7 +16,7 @@ class TutorsView extends Component {
             }
         }
 
-        axios.get('/service/by-subject?subjectId=1', config)
+        axios.get(`/service/by-subject?subjectId=${this.props.subjectId}`, config)
             .then((response => response.data))
             .then((data) => this.setState({ services: data }))
             .catch(error => alert(error));
@@ -38,7 +36,7 @@ class TutorsView extends Component {
                                 subject={service.subject.title}
                                 expirience={service.experience}
                                 rating={service.rating}
-
+                                history={this.props.history}
                              />
                         )
                     })

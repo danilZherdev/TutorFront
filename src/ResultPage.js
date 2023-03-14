@@ -1,14 +1,14 @@
 import { Component } from "react";
 import AboutText from "./AboutText";
 import Header from "./Header";
-import TutorsView from "./TutorsView";
 
-class TutorPage extends Component {
+class ResultPage extends Component {
 
     constructor(props) {
         super(props)
-        console.log('Danil show subjectId is ', this.props.match.params.subjectId)
     }
+
+    result = this.props.match.params.result;
 
     render() {
         return (
@@ -27,10 +27,13 @@ class TutorPage extends Component {
                         }}>
                         <AboutText />
                     </div>
-                    <TutorsView subjectId={this.props.match.params.subjectId} history={this.props.history}/>
+                    <div>
+                        <h1>{this.result === 'success' ? "Вы успешно оплатили услугу!" : "Оплата не прошла!"}</h1>
+                    </div>
                 </div>
             </div>
         )
     }
 }
-export default TutorPage;
+
+export default ResultPage;

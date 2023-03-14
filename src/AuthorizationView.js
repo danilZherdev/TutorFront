@@ -2,8 +2,6 @@ import axios from "axios";
 import { Component } from "react";
 import { FormGroup, Input, Label, Form } from "reactstrap";
 
-
-
 class AuthorizationView extends Component {
 
 
@@ -17,7 +15,7 @@ class AuthorizationView extends Component {
         }
     }
 
-    openRegistratin() {
+    openRegistration() {
         this.props.history.push('/registration')
     }
 
@@ -43,6 +41,9 @@ class AuthorizationView extends Component {
             console.log("token is", token);
             if (token) {
                 localStorage.setItem("token", token);
+                localStorage.setItem("fullName", response.data.fullName);
+                this.props.history.push('/main')
+                event.persist();
             }
         }).catch(error => {
             console.log("Error is = ", error);
@@ -97,9 +98,9 @@ class AuthorizationView extends Component {
                     <FormGroup style={{
                         marginTop: 10
                     }}>
-                        <Input type="submit" value="login" onClick={() => this.props.history.push('/main')} />
+                        <Input type="submit" value="login" />
                     </FormGroup>
-                    <input type={'button'} value='registration' onClick={() => this.openRegistratin()}
+                    <input type={'button'} value='registration' onClick={() => this.openRegistration()}
                         style={{
                             height: 40,
                             width: "100%",
