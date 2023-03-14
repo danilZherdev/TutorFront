@@ -27,7 +27,11 @@ class ResultPage extends Component {
                         }}>
                         <AboutText />
                     </div>
-                    <div>
+                    <div
+                    style={{
+                        margin:'15%'
+                    }}
+                    >
                         <h1>{this.result === 'success' ? "Вы успешно оплатили услугу!" : "Оплата не прошла!"}</h1>
                     </div>
                 </div>

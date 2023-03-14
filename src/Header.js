@@ -66,16 +66,6 @@ class Header extends Component {
                         }} />
 
 
-                    <label>
-                        Город
-                        <select name="choose city" onClick={() => {
-
-                        }}>
-                            <option value="1">Ессентуки </option>
-                            <option value="2">Пятигорск</option>
-                        </select>
-                    </label>
-
                     <input type={'button'} value='войти' onClick={() => this.openAuth()}
                         style={{
                             position: "absolute",
